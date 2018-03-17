@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+.floatingBlockLeft{
+    float: left;  
+    margin-left: 25px;
+}
+
+.floatingBlockMiddle{
+    float: left;
+    margin-left: 25px;
+}
+
+.outputBlock{
+    float: left;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+body{
+    max-width: 1325px ;  
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+input{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+input[type="number"] {
+    width: 100%;
+    max-width: 60px;
+    padding: 4px;
+    margin: 10px;
+    margin-left: 50px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0;
+    width: 100%;
+}
+
+h2 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+}
+
+h3 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: 400;
+    margin: 0;
+    width: 100%;
+}
+
+p {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: 400;
+    padding: 10px;
+    width: 100%;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding:0;
+}
+
+.finalValue{
+	padding: 5px;
+	border-width: 2px;
+	border-style: solid;
+	color: #C00000;
+	border-color: #305496;
+}
+
+.outputValue{
+    padding: 5px;
+    border-width: 2px;
+    border-style: solid;
+    color: #C00000;
+    border-color:#305496;
+    margin-top: 30px;
+}
+
+.category{
+	width: 425px;
+	padding: 10px;
+	border-width: 3px;
+	border-style: solid;
+	border-color: #000000;
+	background-color: #FFFFFF;
+	margin-top: 25px;
+}
+
+.output{
+    width: 400px;
+    padding: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #FFA500;
+    background-color: #FFFFFF;
+    margin-top: 25px;
+}
+
+.hidden {
+    display:none;
+}
+
+.entryChoice{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 20px;
+}
+
+.outputChoice{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.subMenu{
+	margin:0;
+	margin-left:80px;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+.clearfix {
+    display: block;
+}
+
+.inLineStuff {
+     display: inline-block;
+     margin-bottom: 5px;
+}

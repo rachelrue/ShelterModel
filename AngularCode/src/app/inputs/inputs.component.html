@@ -1,0 +1,442 @@
+<body>
+
+<div class="floatingBlockLeft">
+<!--Average Length of Stay-->
+<div class="category">
+	<span class="inLineStuff">
+	<h1>AVERAGE LENGTH OF STAY (days):</h1>
+	</span>
+	<span class="inLineStuff">
+		<h1 class="finalValue">{{los}}</h1>
+	</span>
+	<div class="entryChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="LOS" value="entered" [(ngModel)]="valueLOS" checked 
+			(change)="changeLOSVar()"
+			(change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Enter Value for LOS</h2> 
+		</span>
+		<br>
+
+		<div class="inputValue" [class.hidden]="!hideLOSCheck()">
+			<input type="number" [(ngModel)]="enteredLOS" (change)="calculateLOS()" (change)="calculateOutput()">
+		</div>
+
+		<span class="inLineStuff">
+			<input type="radio" name="LOS" value="calculated" [(ngModel)]="valueLOS" (change)="changeLOSVar()" (change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Use Existing Data</h2>
+		</span>
+	<br>
+	</div>
+	<!--Hidden unless button above is clicked-->
+	<div [class.hidden]="hideLOSCheck()">
+		<div class="subMenu">
+			<h2>Choose Time Period</h2>
+			<div class="entryChoice">
+				<span class="inLineStuff">
+					<input type="radio" name="LOS_Time" value="17" [(ngModel)]="timeLOS" 
+					(change)="calculateLOS()"
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>2017 Exits</h3> 
+				</span>
+				<br>
+				<span class="inLineStuff">
+					<input type="radio" name="LOS_Time" value="16" [(ngModel)]="timeLOS" 
+					(change)="calculateLOS()" checked
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>FY 2016-2017 Exits</h3> 
+				</span>
+				<br>
+			</div>
+		</div>
+		<div class="subMenu">
+			<h2>Choose Household Type</h2>
+			<div class="entryChoice">
+				<span class="inLineStuff">
+					<input type="radio" name="LOS_HH" value="children" [(ngModel)]="hhLOS" 
+					(change)="calculateLOS()" checked
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>Households with Children</h3> 
+				</span>
+				<br>
+				<span class="inLineStuff">
+					<input type="radio" name="LOS_HH" value="adults" [(ngModel)]="hhLOS" 
+					(change)="calculateLOS()"
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>Adult only Households (size > 1)</h3> 
+				</span>
+				<br>
+				<span class="inLineStuff">
+					<input type="radio" name="LOS_HH" value="all" [(ngModel)]="hhLOS" 
+					(change)="calculateLOS()"
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>All Households (size > 1)</h3> 
+				</span>
+				<br>
+			</div>
+		</div>
+		<div class = "subMenu">
+			<!--uses the orgs variable in inputs.component.ts-->
+			<h2>Organizations to Include</h2>
+			<ul class="entryChoice">
+				<li *ngFor="let x of orgs">
+					<span class="inLineStuff">
+						<input type="checkbox" name="LOS_ORGS" (change)="changeLosOrgs(x.name)" 
+						(change)="calculateLOS()" checked
+						(change)="calculateOutput()">
+					</span>
+					<span class="inLineStuff">
+						<h3>{{x.name}}</h3>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--Enrollment-->
+<div class="category">
+	<span class="inLineStuff">
+	<h1>ENROLLMENT (households per year):</h1>
+	</span>
+	<span class="inLineStuff">
+		<h1 class="finalValue">{{enroll}}</h1>
+	</span>
+	<div class="entryChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="enroll" value="entered" [(ngModel)]="valueEnroll" checked (change)="changeEnrollVar()" (change)="calculateEnroll()"
+			(change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Enter Value for Enrollment</h2> 
+		</span>
+		<br>
+
+		<div class="inputValue" [class.hidden]="!hideEnrollCheck()">
+			<input type="number" [(ngModel)]="enteredEnroll" (change)="calculateEnroll()"
+			(change)="calculateOutput()">
+		</div>
+
+		<span class="inLineStuff">
+			<input type="radio" name="enroll" value="calculated" [(ngModel)]="valueEnroll" (change)="changeEnrollVar()" 
+			(change)="calculateEnroll()"
+			(change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Use Existing Data</h2>
+		</span>
+	<br>
+	</div>
+	<!--Hidden unless button above is clicked-->
+	<div [class.hidden]="hideEnrollCheck()">
+		<div class="subMenu">
+			<h2>Choose Time Period</h2>
+			<div class="entryChoice">
+				<span class="inLineStuff">
+					<input type="radio" name="Enroll_Time" value="16" [(ngModel)]="timeEnroll" (change)="calculateEnroll()" checked
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>FY 2016-2017</h3> 
+				</span>
+				<br>
+				<span class="inLineStuff">
+					<input type="radio" name="Enroll_Time" value="15" [(ngModel)]="timeEnroll" (change)="calculateEnroll()"
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>FY 2015-2016</h3> 
+				</span>
+				<br>
+				<span class="inLineStuff">
+					<input type="radio" name="Enroll_Time" value="average" [(ngModel)]="timeEnroll" (change)="calculateEnroll()"
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>FY 2015-2017 (2 Year Average)</h3> 
+				</span>
+				<br>
+			</div>
+		</div>
+		<div class="subMenu">
+			<h2>Choose Household Type</h2>
+			<div class="entryChoice">
+				<span class="inLineStuff">
+					<input type="radio" name="Enroll_HH" value="children" [(ngModel)]="hhEnroll" (change)="calculateEnroll()" checked
+					(change)="calculateOutput()"> 
+				</span>
+				<span class="inLineStuff">
+					<h3>Households with Children</h3> 
+				</span>
+				<br>
+				<span class="inLineStuff">
+					<input type="radio" name="Enroll_HH" value="adults" [(ngModel)]="hhEnroll" (change)="calculateEnroll()"
+					(change)="calculateOutput()">
+				</span>
+				<span class="inLineStuff">
+					<h3>Adult only Households (size > 1)</h3> 
+				</span>
+				<br>
+			</div>
+		</div>
+		<div class = "subMenu">
+			<!--uses the orgs variable in inputs.component.ts-->
+			<h2>Organizations to Include</h2>
+			<ul class="entryChoice">
+				<li *ngFor="let x of orgs">
+					<span class="inLineStuff">
+						<input type="checkbox" name="Enroll_ORGS" (change)="changeEnrollOrgs(x.name)" (change)="calculateEnroll()" checked
+						(change)="calculateOutput()">
+					</span>
+					<span class="inLineStuff">
+						<h3>{{x.name}}</h3>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!--Utilization Rate-->
+<div class="category">
+	<span class="inLineStuff">
+	<h1>UTILIZATION RATE (households/units):</h1>
+	</span>
+	<span class="inLineStuff">
+		<h1 class="finalValue">{{utilization}}%</h1>
+	</span>
+	<div class="entryChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="util" value="entered" [(ngModel)]="valueUtil" checked (change)="changeUtilVar()" (change)="calculateUtilization()" (change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Enter Value for Utilization</h2> 
+		</span>
+		<br>
+
+		<div class="inputValue" [class.hidden]="!hideUtilCheck()">
+			<input type="number" [(ngModel)]="enteredUtil" (change)="calculateUtilization()" (change)="calculateOutput()">
+		</div>
+
+		<span class="inLineStuff">
+			<input type="radio" name="util" value="calculated" [(ngModel)]="valueUtil" (change)="changeUtilVar()" (change)="calculateUtilization()" (change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Use Existing Data</h2>
+		</span>
+	<br>
+	</div>
+	<!--Hidden unless button above is clicked-->
+	<div [class.hidden]="hideUtilCheck()">
+		<div class = "subMenu">
+			<!--uses the orgs variable in inputs.component.ts-->
+			<h2>Organizations to Include</h2>
+			<ul class="entryChoice">
+				<li *ngFor="let x of orgs">
+					<span class="inLineStuff">
+						<input type="checkbox" name="Util_ORGS" (change)="changeUtilOrgs(x.name)" (change)="calculateUtilization()" checked (change)="calculateOutput()">
+					</span>
+					<span class="inLineStuff">
+						<h3>{{x.name}}</h3>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="floatingBlockMiddle">
+<!--Exisiting Units-->
+<div class="category">
+	<span class="inLineStuff">
+	<h1>NUMBER OF EXISTING UNITS:</h1>
+	</span>
+	<span class="inLineStuff">
+		<h1 class="finalValue">{{units}}</h1>
+	</span>
+	<div class="entryChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="units" value="entered" [(ngModel)]="valueUnits" checked (change)="changeUnitsVar()" (change)="calculateUnits()" (change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Enter Value for Existing Units</h2> 
+		</span>
+		<br>
+
+		<div class="inputValue" [class.hidden]="!hideUnitsCheck()">
+			<input type="number" [(ngModel)]="enteredUnits" (change)="calculateUnits()" (change)="calculateOutput()">
+		</div>
+
+		<span class="inLineStuff">
+			<input type="radio" name="units" value="calculated" [(ngModel)]="valueUnits" (change)="changeUnitsVar()" (change)="calculateUnits()" (change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Use Existing Data</h2>
+		</span>
+	<br>
+	</div>
+	<!--Hidden unless button above is clicked-->
+	<div [class.hidden]="hideUnitsCheck()">
+		<div class = "subMenu">
+			<!--uses the orgs variable in inputs.component.ts-->
+			<h2>Organizations to Include</h2>
+			<ul class="entryChoice">
+				<li *ngFor="let x of orgs">
+					<span class="inLineStuff">
+						<input type="checkbox" name="Units_ORGS" (change)="changeUnitsOrgs(x.name)" (change)="calculateUnits()" checked (change)="calculateOutput()">
+					</span>
+					<span class="inLineStuff">
+						<h3>{{x.name}}</h3>
+					</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!--Current Unmet Need-->
+
+<div class="category">
+	<span class="inLineStuff">
+	<h1>CURRENT UNMET NEED (households per year)</h1>
+	</span>
+	<span class="inLineStuff">
+		<h1 class="finalValue">{{unmet}}</h1>
+	</span>
+	<div class="entryChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="unmet" value="entered" [(ngModel)]="valueUnmet" checked (change)="changeUnmetVar()" (change)="calculateUnmet()" (change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Enter Value for Unmet Need (per month)</h2> 
+		</span>
+		<br>
+
+		<div class="inputValue" [class.hidden]="!hideUnmetCheck()">
+			<input type="number" [(ngModel)]="enteredUnmet" (change)="calculateUnmet()" (change)="calculateOutput()">
+		</div>
+
+		<span class="inLineStuff">
+			<input type="radio" name="unmet" value="calculated" [(ngModel)]="valueUnmet" (change)="changeUnmetVar()" (change)="calculateUnmet()" (change)="calculateOutput()"> 
+		</span>
+		<span class="inLineStuff">
+			<h2>Use Default Estimate ({{unmetEstimate}}/month)</h2>
+		</span>
+	<br>
+	</div>
+</div>
+
+<!--Number of New Units -->
+
+<div class="category">
+	<span class="inLineStuff">
+	<h1>NUMBER OF NEW UNITS:</h1>
+	</span>
+	<span class="inLineStuff">
+		<h1 class="finalValue">{{newUnits}}</h1>
+	</span>
+	<div class="entryChoice">
+		<span class="inLineStuff">
+			<h2>Enter Value for Desired Number of New Units</h2> 
+		</span>
+		<br>
+		<div>
+			<input type="number" [(ngModel)]="newUnits" (change)="calculateOutput()">
+		</div>
+	<br>
+	</div>
+</div>
+</div>
+
+
+<!--Outputs -->
+<div class="outputBlock">
+<div class="output">
+	<h1>OUTPUT</h1>
+	
+
+	<div class="outputChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Average Length of Stay:" 
+			[(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Average Length of Stay</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Utilization Rate:" [(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Utilization Rate</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Future Annual Unmet Need:" 
+			[(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Future Annual Unmet Need</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Number of New Units:" 
+			[(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Number of New Units</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<h1>{{valueOutput}}</h1>
+		</span>
+		<span class="inLineStuff">
+			<h1 class="outputValue">{{output}}{{outputUnitsMarker}}</h1>
+		</span>
+		
+
+	</div>
+</div>
+<div class="output">
+	<h1>Instructions and Notes</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+</div>
+
+
+</body>
+
+
+<div class="clearfix"></div>

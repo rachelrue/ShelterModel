@@ -1,0 +1,25 @@
+app-inputs {
+	width: 100%;
+}
+
+#topBar{
+	width:100%;
+	background-color: #503096;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #F7F7F7;
+	font-weight: 500;
+	font-size: 2em;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-color: #000000;
+	border-style: solid;
+	border-top: 3px;
+	border-bottom: 3px;
+}
+
+.surroundBar{
+	width:100%;
+	background-color: #000000;
+	height: 3px;
+}
