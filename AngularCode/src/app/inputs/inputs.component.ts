@@ -517,7 +517,7 @@ export class InputsComponent implements OnInit {
 
 		//output code
 
-		this.valueOutput = "Average Length of Stay:";
+		this.valueOutput = "Number of New Units:";
 	}
 
 	ngOnInit() {
