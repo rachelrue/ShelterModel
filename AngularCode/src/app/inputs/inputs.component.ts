@@ -360,6 +360,29 @@ export class InputsComponent implements OnInit {
 		}
 	}
 
+	isGrayLOS: boolean = false;
+	isGrayUtil: boolean = false;
+	isGrayUnmet: boolean = false;
+	isGrayNew: boolean = false;
+
+	//formatting rules used to gray out a box when its output is selected
+	grayLOS(){
+		return this.isGrayLOS;
+	}
+
+	grayUtil(){
+		return this.isGrayUtil;
+	}
+
+	grayUnmet(){
+		return this.isGrayUnmet;
+	}
+
+	grayNew(){
+		return this.isGrayNew;
+	}
+
+
 	/*
 	//
 	//
@@ -375,6 +398,10 @@ export class InputsComponent implements OnInit {
 	calculateOutput(){
 		if(this.valueOutput == "Average Length of Stay:"){
 			this.outputUnitsMarker = " days";
+			this.isGrayLOS = true;
+			this.isGrayUtil= false;
+			this.isGrayUnmet = false;
+			this.isGrayNew = false;
 			if((this.enroll+this.unmet)==0){
 				this.output = 0;
 			}else{
@@ -390,6 +417,10 @@ export class InputsComponent implements OnInit {
 			}
 		}else if(this.valueOutput == "Utilization Rate:"){
 			this.outputUnitsMarker = "%";
+			this.isGrayLOS = false;
+			this.isGrayUtil= true;
+			this.isGrayUnmet = false;
+			this.isGrayNew = false;
 			if((this.units+this.newUnits) == 0){
 				this.output = 0;
 			}else{
@@ -408,6 +439,10 @@ export class InputsComponent implements OnInit {
 			}
 		}else if(this.valueOutput == "Future Annual Unmet Need:"){
 			this.outputUnitsMarker = " households";
+			this.isGrayLOS = false;
+			this.isGrayUtil= false;
+			this.isGrayUnmet = true;
+			this.isGrayNew = false;
 			if(this.los==0){
 				this.output = 0;
 			}else{
@@ -424,6 +459,10 @@ export class InputsComponent implements OnInit {
 			}
 		}else if(this.valueOutput == "Number of New Units:"){
 			this.outputUnitsMarker = "";
+			this.isGrayLOS = false;
+			this.isGrayUtil= false;
+			this.isGrayUnmet = false;
+			this.isGrayNew = true;
 			if(this.utilization == 0){
 				this.output = 0;
 			}else{

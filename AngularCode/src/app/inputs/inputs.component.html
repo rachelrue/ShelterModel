@@ -1,8 +1,80 @@
 <body>
 
+
+<!--Outputs -->
+<div class="outputBlock">
+<div class="output">
+	<h1>OUTPUT</h1>
+	
+
+	<div class="outputChoice">
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Average Length of Stay:" 
+			[(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Average Length of Stay</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Utilization Rate:" [(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Utilization Rate</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Future Annual Unmet Need:" 
+			[(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Future Annual Unmet Need</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<input type="radio" name="output" value="Number of New Units:" 
+			[(ngModel)]="valueOutput" checked 
+			(change)="calculateOutput()">
+		</span>
+		<span class="inLineStuff">
+			<h2>Number of New Units</h2> 
+		</span>
+		<br>
+
+		<span class="inLineStuff">
+			<h1>{{valueOutput}}</h1>
+		</span>
+		<span class="inLineStuff">
+			<h1 class="outputValue">{{output}}{{outputUnitsMarker}}</h1>
+		</span>
+		
+
+	</div>
+</div>
+<div class="output">
+	<h1>Instructions and Notes</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+</div>
+
+
+<div class="inputBlock">
+
 <div class="floatingBlockLeft">
 <!--Average Length of Stay-->
-<div class="category">
+<div class="category" [class.graybox]="grayLOS()">
 	<span class="inLineStuff">
 	<h1>AVERAGE LENGTH OF STAY (days):</h1>
 	</span>
@@ -215,7 +287,7 @@
 </div>
 
 <!--Utilization Rate-->
-<div class="category">
+<div class="category" [class.graybox]="grayUtil()">
 	<span class="inLineStuff">
 	<h1>UTILIZATION RATE (households/units):</h1>
 	</span>
@@ -262,6 +334,7 @@
 	</div>
 </div>
 </div>
+
 
 <div class="floatingBlockMiddle">
 <!--Exisiting Units-->
@@ -314,7 +387,7 @@
 
 <!--Current Unmet Need-->
 
-<div class="category">
+<div class="category" [class.graybox]="grayUnmet()">
 	<span class="inLineStuff">
 	<h1>CURRENT UNMET NEED (households per year)</h1>
 	</span>
@@ -346,7 +419,7 @@
 
 <!--Number of New Units -->
 
-<div class="category">
+<div class="category" [class.graybox]="grayNew()">
 	<span class="inLineStuff">
 	<h1>NUMBER OF NEW UNITS:</h1>
 	</span>
@@ -367,74 +440,7 @@
 </div>
 
 
-<!--Outputs -->
-<div class="outputBlock">
-<div class="output">
-	<h1>OUTPUT</h1>
-	
-
-	<div class="outputChoice">
-		<span class="inLineStuff">
-			<input type="radio" name="output" value="Average Length of Stay:" 
-			[(ngModel)]="valueOutput" checked 
-			(change)="calculateOutput()">
-		</span>
-		<span class="inLineStuff">
-			<h2>Average Length of Stay</h2> 
-		</span>
-		<br>
-
-		<span class="inLineStuff">
-			<input type="radio" name="output" value="Utilization Rate:" [(ngModel)]="valueOutput" checked 
-			(change)="calculateOutput()">
-		</span>
-		<span class="inLineStuff">
-			<h2>Utilization Rate</h2> 
-		</span>
-		<br>
-
-		<span class="inLineStuff">
-			<input type="radio" name="output" value="Future Annual Unmet Need:" 
-			[(ngModel)]="valueOutput" checked 
-			(change)="calculateOutput()">
-		</span>
-		<span class="inLineStuff">
-			<h2>Future Annual Unmet Need</h2> 
-		</span>
-		<br>
-
-		<span class="inLineStuff">
-			<input type="radio" name="output" value="Number of New Units:" 
-			[(ngModel)]="valueOutput" checked 
-			(change)="calculateOutput()">
-		</span>
-		<span class="inLineStuff">
-			<h2>Number of New Units</h2> 
-		</span>
-		<br>
-
-		<span class="inLineStuff">
-			<h1>{{valueOutput}}</h1>
-		</span>
-		<span class="inLineStuff">
-			<h1 class="outputValue">{{output}}{{outputUnitsMarker}}</h1>
-		</span>
-		
-
-	</div>
 </div>
-<div class="output">
-	<h1>Instructions and Notes</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
-
-</div>
-
 
 </body>
 
