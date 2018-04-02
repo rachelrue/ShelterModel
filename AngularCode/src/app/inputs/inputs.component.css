@@ -163,3 +163,15 @@ ul {
      display: inline-block;
      margin-bottom: 5px;
 }
+
+.instructBlock{
+    width: 1300px;
+    padding: 10px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #000000;
+    background-color: #FFFFFF;
+    margin-top: 25px;
+    margin-left: 25px;
+
+}

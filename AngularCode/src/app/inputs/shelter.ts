@@ -33,8 +33,8 @@ export class EnrollmentData{
 export const UNMETESTIMATE: number = 11;
 
 export const SHELTERDATA:Shelter[] = [
-	{
-		name: 'AVAC',
+	{	/*Shelter A = AVAC*/
+		name: 'Shelter A',
 		existingUnits: 3,
 		los: 
 		{
@@ -63,8 +63,8 @@ export const SHELTERDATA:Shelter[] = [
 		},
 		utilizationRate: 67.48858447488
 	},
-	{
-		name: 'CHS Atypical Shelter',
+	{	/*Shelter T = CHS Atypical Shelter*/
+		name: 'Shelter T',
 		existingUnits: 1,
 		los: 
 		{
@@ -92,8 +92,8 @@ export const SHELTERDATA:Shelter[] = [
 		},
 		utilizationRate: 77.2602739726027
 	},
-	{
-		name: 'CHS ES - Motel - Hotel',
+	{	/*Shelter C = CHS Family Shelter*/
+		name: 'Shelter C',
 		existingUnits: 25,
 		los: 
 		{
@@ -121,8 +121,8 @@ export const SHELTERDATA:Shelter[] = [
 		},
 		utilizationRate: 95.7808219178081
 	},
-	{
-		name: 'Family Promise',
+	{	/*Shelter F = Family Promise*/
+		name: 'Shelter F',
 		existingUnits: 4,
 		los: 
 		{
@@ -150,8 +150,8 @@ export const SHELTERDATA:Shelter[] = [
 		},
 		utilizationRate: 77.7397260273973
 	},
-	{
-		name: 'Salvation Army',
+	{	/*Shelter S = Salvation Army*/
+		name: 'Shelter S',
 		existingUnits: 17,
 		los: 
 		{
@@ -179,8 +179,8 @@ export const SHELTERDATA:Shelter[] = [
 		},
 		utilizationRate: 60.5479452054796
 	},
-	{
-		name: 'Womanspace East',
+	{	/*Shelter W = Womanspace East*/
+		name: 'Shelter W',
 		existingUnits: 14,
 		los: 
 		{

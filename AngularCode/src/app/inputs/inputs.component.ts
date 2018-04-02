@@ -441,7 +441,7 @@ export class InputsComponent implements OnInit {
 			this.outputUnitsMarker = " households";
 			this.isGrayLOS = false;
 			this.isGrayUtil= false;
-			this.isGrayUnmet = true;
+			this.isGrayUnmet = false;
 			this.isGrayNew = false;
 			if(this.los==0){
 				this.output = 0;
