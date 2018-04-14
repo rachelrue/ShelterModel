@@ -69,6 +69,14 @@ h3 {
     width: 100%;
 }
 
+h4 {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+}
+
 p {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: .9em;
@@ -77,10 +85,62 @@ p {
     width: 100%;
 }
 
+var {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: 400;
+    width: 100%;
+    color: #FF0000;
+}
+
+.notes{
+    margin:0;
+    padding:5px !important;
+}
+
+#notesHeading{
+    margin-bottom: 5px;
+}
+
+
+.stdHeading{
+    margin:0;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.stdP{
+    margin-top:0 !important;
+    margin-bottom:0 !important;
+    padding:0px 0px 0px 20px !important;
+}
+
+.stdP2{
+    margin-top:0;
+    margin-bottom:0;
+    padding: 0px 0px 0px 20px;
+}
+
 ul {
-	list-style-type: none;
-	margin: 0;
-	padding:0;
+	list-style-type:disc;
+    margin-left: 40px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: 400;
+    max-width: 800px;
+}
+
+li {
+    margin-top: 5px;
+}
+
+#mID{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#insID{
+    font-size: 1.3em !important;
 }
 
 .finalValue{
@@ -144,6 +204,8 @@ ul {
 	margin:0;
 	margin-left:80px;
 }
+
+
 
 .clearfix:after {
     clear: both;

@@ -58,8 +58,10 @@
 	</div>
 </div>
 <div class="output">
-	<h1>Notes</h1>
-	<p>This calculator is a tool for exploring ways to reduce the number of families turned away from emergency shelters due to lack of available space. The number of families turned away is defined as "unmet need".<br>Enter your own inputs, or choose data from Allegheny County's shelter system.<br>For more complete instructions and definitions see below.</p>
+	<h1 id="notesHeading">Notes</h1>
+	<p class="notes">This calculator is a tool for exploring ways to reduce the number of families turned away from emergency shelters due to lack of available space. The number of families turned away is defined as "unmet need".</p>
+	<p class="notes">Choose an output variable, then enter your own inputs or choose data from Allegheny County's shelter system.</p>
+	<p class="notes">For more complete instructions and definitions see below.</p>
 </div>
 
 </div>
@@ -384,7 +386,7 @@
 
 <div class="category" [class.graybox]="grayUnmet()">
 	<span class="inLineStuff">
-	<h1>CURRENT UNMET NEED (households per year)</h1>
+	<h1>CURRENT UNMET NEED (households per year):</h1>
 	</span>
 	<span class="inLineStuff">
 		<h1 class="finalValue">{{unmet}}</h1>
@@ -439,13 +441,75 @@
 <div class="clearfix"></div>
 
 <div class="instructBlock">
-	<h1>Instructions and Notes</h1>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<h1 id="insID">Instructions and Definitions</h1>
+	<br>
+
+	<h2 class="stdHeading">Variable Definitions</h2>
+	<table class="stdP">
+		<tr>
+			<td style="width: 120px"><var>Unmet Need</var></td>
+			<td style="width: 400px">=  average number of families turned away annually</td>
+		</tr>
+		<tr>
+			<td><var>Enrollment</var></td>
+			<td>=  average number of families enrolled annually</td>
+		</tr>
+		<tr>
+			<td><var>Utilization</var></td>
+			<td>=  average number of occupied units/ total units </td>
+		</tr>
+		<tr>
+			<td><var>Length of Stay</var></td>
+			<td>=  average length of stay (days)</td>
+		</tr>
+		<tr>
+			<td><var>Current Units</var></td>
+			<td>=  number of units currently in system</td>
+		</tr>
+		<tr>
+			<td><var>New Units</var></td>
+			<td>=  number of units to be added to system</td>
+		</tr>
+		
+	</table>
+
+	<h2 class="stdHeading">Supply Variables</h2>
+	<p class="stdP">Available unit-nights per year = (<var>Current Units</var> + <var>New Units</var>) * <var>Utilization</var> * 365</p>
+	<h2 class="stdHeading">Demand Variables</h2>
+	<p class="stdP">Unit-nights needed per year   = (<var>Enrollment</var> + <var>Unmet Need</var>) * <var>Length of Stay</var></p>
+	<h2 class="stdHeading"> The model sets supply equal to demand.</h2>
+	<p class="stdP">(<var>Current Units</var> + <var>New Units</var>) * <var>Utilization</var> * 365     		
+		= 	(<var>Enrollment</var> + <var>Unmet Need</var>) * <var>Length of Stay</var></p>
+
+	<h2 class="stdHeading">How to Use the Model</h2>
+	<p class="stdP2">The model makes the simplifying assumption that all values are average. Output values are based on this assumption.</p>
+	<p class="stdP2" id="mID">Examples:</p>
+	<ul class="stdP">
+		<li>Find the number of new units needed to reduce future unmet need to zero.</li>
+			<ul>
+			<li>Output variable: "Number of New Units" </li>
+			<li>Inputs: Select actual data from shelter system</li>
+			<li>Output assumptions: Length of Stay and Utilization Rate in new units will be the same as in existing units.</li>
+			</ul>
+		
+		<li>Suppose the system expects to add <em>n</em> new units. Find the average Length of Stay required in order to reduce future unmet need to zero. </li>
+			<ul>
+			<li>Output variable: "Average Length of Stay" </li>
+			<li>Input value for "Number of New Units": Enter <em>n</em></li>
+			<li>Remaining inputs: Select actual data from shelter system</li> 
+			</ul>
+			
+		<li>Explore future options based on the performance of subsets of shelters. Example:</li> 
+			<ul>
+			<li> Output variable: "Number of New Units"</li>
+			<li> Length of Stay Input: Select Shelter A</li>
+			<li> Utilization Rate Input: Select Shelter B</li>
+			<li> Remaining inputs: Select actual data from shelter system</li>
+			<li> Output: number of new units required to reduce unmet need to zero, assuming that the average length of stay in the new units will be the same as in Shelter A, and the average utilization rate will be the same as in Shelter B.</li> 
+			</ul>
+	</ul> 
+
+
 </div>	
 </body>
 
